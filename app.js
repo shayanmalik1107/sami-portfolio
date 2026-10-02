@@ -44,17 +44,36 @@ $('.close').onclick = () => dialog.close();
 dialog.addEventListener('close', () => { $('#playercontent').replaceChildren(); });
 dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
 
+function getYoutubeId(url) {
+  if (!url) return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
+  return match ? match[1] : null;
+}
+
 function showVideo(url, title) {
   const area = $('#playercontent');
   area.replaceChildren();
   if (url) {
-    const video = document.createElement('video');
-    video.src = url;
-    video.controls = true;
-    video.autoplay = true;
-    video.playsInline = true;
-    area.append(video);
-    video.play().catch(() => {});
+    const ytId = getYoutubeId(url);
+    if (ytId) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', 'true');
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.aspectRatio = '16 / 9';
+      area.append(iframe);
+    } else {
+      const video = document.createElement('video');
+      video.src = url;
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      area.append(video);
+      video.play().catch(() => {});
+    }
   } else {
     const box = document.createElement('div');
     box.className = 'empty-player';
@@ -95,10 +114,12 @@ cfg.projects.forEach((p, i) => {
   button.setAttribute('aria-label', 'View ' + p.brand + ' project');
   
   const videoSrc = p.video ? p.video : '';
+  const ytId = getYoutubeId(videoSrc);
+  const thumbStyle = ytId ? `style="background-image: url('https://img.youtube.com/vi/${ytId}/maxresdefault.jpg'); background-size: cover; background-position: center;"` : '';
   
   button.innerHTML = `
-    <div class="thumb media">
-      ${videoSrc ? `
+    <div class="thumb media" ${thumbStyle}>
+      ${!ytId && videoSrc ? `
         <video src="${videoSrc}" muted playsinline preload="metadata" class="card-bg-video"></video>
         <video src="${videoSrc}" muted playsinline preload="metadata" class="card-fg-video"></video>
       ` : ''}
@@ -212,7 +233,11 @@ stages.forEach((s, i) => {
     });
   }
   if (i === 5) {
-    v.innerHTML = '<div class="export-wrap" style="width: 100%;"><div class="thumb media" style="aspect-ratio: 16/9; width: 100%; border-radius: 8px; overflow: hidden; position: relative;"><video src="FINAL FIRST VIDEO.mov" muted playsinline class="card-bg-video"></video><span class="play">▶</span></div><div class="mono status" style="margin-top:20px;">READY FOR DELIVERY</div></div>';
+    const ytId = getYoutubeId(cfg.reel);
+    const thumbStyle = ytId ? `style="aspect-ratio: 16/9; width: 100%; border-radius: 8px; overflow: hidden; position: relative; background-image: url('https://img.youtube.com/vi/${ytId}/maxresdefault.jpg'); background-size: cover; background-position: center;"` : `style="aspect-ratio: 16/9; width: 100%; border-radius: 8px; overflow: hidden; position: relative;"`;
+    const videoHtml = ytId ? '' : `<video src="${cfg.reel}" muted playsinline class="card-bg-video"></video>`;
+    
+    v.innerHTML = `<div class="export-wrap" style="width: 100%;"><div class="thumb media" ${thumbStyle}>${videoHtml}<span class="play">▶</span></div><div class="mono status" style="margin-top:20px;">READY FOR DELIVERY</div></div>`;
   }
   track.append(slide);
   const dot = document.createElement('button');
