@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Video editing, compelling stories, and selected brand projects by MUHAMMAD SAMI.">
+  <title>MUHAMMAD SAMI — Video Editor</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress"><i id="progress"></i></div>
+  
+  <header>
+    <a class="brand" href="#hero">
+      <b data-name>MUHAMMAD SAMI</b>
+      <span>EDIT / MOTION</span>
+    </a>
+    
+    <div class="header-nav">
+      <a href="#hero">HOME</a>
+      <a href="#reel">SHOWREEL</a>
+      <a href="#work">WORK</a>
+      <a href="#process-intro">PROCESS</a>
+      <a href="#toolkit">TOOLKIT</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
+    <button id="menu" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <nav id="navigation" hidden>
+    <a href="#hero">00 <b>Home</b></a>
+    <a href="#reel">01 <b>Showreel</b></a>
+    <a href="#work">02 <b>Selected work</b></a>
+    <a href="#process-intro">03 <b>Process</b></a>
+    <a href="#toolkit">04 <b>Toolkit</b></a>
+    <a href="#contact">05 <b>Contact</b></a>
+  </nav>
+
+  <aside class="rail">
+    <span id="timecode">00:00:00:00</span>
+    <i></i>
+    <span id="sectionname">HERO</span>
+  </aside>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="project-meta mono">
+        <span>PROJECT / PORTFOLIO_MASTER</span>
+        <span>SEQUENCE 01 — PERSONAL EDIT</span>
+      </div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">VIDEO EDITOR / CREATIVE STORYTELLER</div>
+          <h1><span>MUHAMMAD</span><br><span class="outline">SAMI.</span></h1>
+          <p>Video Editor <span class="red">/</span> Motion & Story</p>
+          <div class="actions">
+            <a class="button filled" href="#reel">Watch showreel</a>
+            <a class="button" href="#contact">Start a project</a>
+          </div>
+        </div>
+        
+        <div class="portrait media" data-media="portrait">
+          <img src="sami-nobg.png" alt="MUHAMMAD SAMI" class="portrait-img">
+          <div class="frame-top mono"><span><i class="rec"></i> CAM 01</span><span>SAMI_NOBG.PNG</span></div>
+          <div class="frame-bottom mono"><span>1920 × 2160</span><span>FRAME 000001</span></div>
+        </div>
+      </div>
+      <div class="hero-bottom mono">
+        <span>SCROLL TO PLAY</span>
+        <span>EDIT. FEEL. REMEMBER.</span>
+        <span>01 / 06</span>
+      </div>
+    </section>
+
+    <div class="clients mono">
+      <span>PROJECT INDEX</span>
+      <b>PAK LYCEUM</b>
+      <b>BRAIN LAB</b>
+      <b>GLOET SKIN CARE</b>
+      <b>DON 2</b>
+      <b>AYLIN</b>
+      <b>ADVERTIO</b>
+    </div>
+
+    <section id="reel" class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">01 / SHOWREEL</div>
+        <h2>A little time.<br><em>A lot of story.</em></h2>
+      </div>
+      <button class="reel media" data-video="reel" aria-label="Open showreel">
+        <video src="FINAL FIRST VIDEO.mov" autoplay loop muted playsinline preload="auto" class="reel-bg-video"></video>
+        <video src="FINAL FIRST VIDEO.mov" autoplay loop muted playsinline preload="auto" class="reel-fg-video"></video>
+        <span class="play">▶</span>
+      </button>
+      <div class="caption mono">
+        <span>SELECTED MOMENTS / PERSONAL SHOWREEL</span>
+        <span>YOUR NEXT FRAME STARTS HERE</span>
+      </div>
+    </section>
+
+    <section id="work" class="wrap">
+      <div class="section-head split">
+        <div>
+          <div class="eyebrow">02 / SELECTED WORK</div>
+          <h2>Made to<br><em>be watched.</em></h2>
+        </div>
+        <p>Brand stories, social edits, and moments shaped frame by frame.</p>
+      </div>
+      <div class="work-grid" id="projects"></div>
+    </section>
+
+    <section id="process-intro" class="wrap process-intro-head">
+      <div class="section-head split">
+        <div>
+          <div class="eyebrow">06 / PROCESS</div>
+          <h2>How frames<br><em>become stories.</em></h2>
+        </div>
+        <p>From raw footage to final export, shaping narrative step by step.</p>
+      </div>
+    </section>
+
+    <section id="process" class="process">
+      <div class="process-pin">
+        <div class="process-hud mono">
+          <div class="process-hud-title">
+            <span class="mono eyebrow">06 / PROCESS</span>
+            <span id="process-label">01 / RAW</span>
+          </div>
+          <div id="process-dots" aria-label="Editing stages"></div>
+        </div>
+        <div class="process-track" id="process-track"></div>
+      </div>
+    </section>
+
+    <section id="toolkit" class="wrap">
+      <div class="section-head split">
+        <div>
+          <div class="eyebrow">04 / TOOLKIT</div>
+          <h2>The tool.<br><em>The intention.</em></h2>
+        </div>
+        <p>A good edit begins with a story.<br>The tools bring it into focus.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-icon capcut-logo">
+          <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 36C18 25.5066 26.5066 17 37 17H73C74.6569 17 76 18.3431 76 20V37C76 38.6569 74.6569 40 73 40H42C39.2386 40 37 42.2386 37 45V78C37 79.6569 35.6569 81 34 81H21C19.3431 81 18 79.6569 18 78V36Z" fill="#FFFFFF"/>
+            <path d="M43 43H78C79.6569 43 81 44.3431 81 46V78C81 79.6569 79.6569 81 78 81H62C60.3431 81 59 79.6569 59 78V59C59 56.2386 56.7614 54 54 54H46C44.3431 54 43 52.6569 43 51V43Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div>
+          <h3>CapCut</h3>
+          <p>VIDEO EDITING / SOCIAL CONTENT / CAPTIONS</p>
+        </div>
+        <span class="mono">01</span>
+      </div>
+      <div class="disciplines">
+        <span>Story & pacing</span>
+        <span>Sound & rhythm</span>
+        <span>Color & mood</span>
+        <span>Short-form edits</span>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap contact">
+      <div class="eyebrow">05 / NEXT PROJECT</div>
+      <h2>Let's make<br>something<br><em>worth watching.</em></h2>
+      <div class="contact-bottom">
+        <div>
+          <p>Have a story in mind?<br>Let's find its best cut.</p>
+          <a href="https://wa.me/923021403106" target="_blank" rel="noopener" class="contact-phone mono">+92 302 1403106</a>
+        </div>
+        <a href="https://wa.me/923021403106" target="_blank" rel="noopener" class="button filled" id="contactbutton">Get in touch (WhatsApp)</a>
+      </div>
+      <footer class="mono">
+        <span>© 2026 <span data-name>MUHAMMAD SAMI</span></span>
+        <span>EDIT / MOTION / STORY</span>
+        <a href="#hero">Back to top</a>
+      </footer>
+    </section>
+  </main>
+
+  <dialog id="player">
+    <button class="close" aria-label="Close video">×</button>
+    <div id="playercontent"></div>
+  </dialog>
+
+  <script src="content.js?v=3"></script>
+  <script src="app.js?v=3"></script>
+</body>
+</html>
+
+
