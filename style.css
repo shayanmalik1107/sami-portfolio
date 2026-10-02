@@ -1280,17 +1280,63 @@ video {
     flex-direction: column;
     gap: 12px;
   }
+
+  .clients {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px 8px;
+    padding: 24px 5%;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .clients > span {
+    display: none;
+  }
+
+  .client-supp {
+    grid-column: 1 / -1;
+    order: 1;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+  }
+
+  .client-brain {
+    grid-column: span 2;
+    order: 2;
+    font-size: 12px;
+  }
+
+  .client-val {
+    grid-column: span 2;
+    order: 3;
+    font-size: 12px;
+  }
+
+  .client-adv {
+    grid-column: span 2;
+    order: 4;
+    font-size: 12px;
+  }
+
+  .client-gloet {
+    grid-column: span 3;
+    order: 5;
+    font-size: 12px;
+  }
+
+  .client-pak {
+    grid-column: span 3;
+    order: 6;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-bottom {
     flex-direction: column;
     gap: 12px;
-  }
-
-  .clients {
-    gap: 16px;
-    padding: 25px 5%;
   }
 
   .tool {
