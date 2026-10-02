@@ -1,6 +1,16 @@
 const cfg = window.portfolio;
 const $ = s => document.querySelector(s);
 
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('loaded');
+      setTimeout(() => loader.remove(), 1200);
+    }
+  }, 1500);
+});
+
 // Render Name
 document.querySelectorAll('[data-name]').forEach(e => e.textContent = cfg.name);
 const parts = cfg.name.split(' ');
